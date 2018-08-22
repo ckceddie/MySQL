@@ -1,0 +1,55 @@
+<html>
+<head>
+  <title>my Friends</title>
+    <style>
+        div.table{
+            text-align: center;
+        }
+    </style>
+      <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
+</head>
+<body>
+ <div class="table"> 
+<table class="pure-table">
+        <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>first Name</td>
+                    <td>last name</td>
+                    <td>Occupation</td>
+                    <td>Created at</td>
+                    <td>Updated at</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+{% for friend in all_friends: %}
+    
+    <tr>
+        <td>{{ friend['id'] }}</td>
+        <td><a href="/{{friend['id']}}">{{ friend['first_name'] }}</a></td>
+        <td>{{ friend['last_name'] }}</td>
+        <td>{{ friend['occupation'] }}</td>
+        <td>{{ friend['created_at'] }}</td>
+        <td>{{ friend['updated_at'] }}</td>
+        <td>[<a href="/{{friend['id']}}/edit">edit</a>] 
+            <form action="/{{friend['id']}}/delete" method="POST"><input type="submit" value="Delete"></form> </td>
+    </tr>
+    
+{% endfor %}
+
+</table>
+<p><a href="/new">Create NEW FRIEND PROFILE</a></p>
+</div>
+   
+<div>
+        <form action="/friends" method="post">
+          <p> <label for="first_name">First Name1</label>   <input type="text" name="first_name" ></p>
+          <p> <label for="last_name">Last Name</label>   <input type="text" name="last_name" ></p>
+          <p> <label for="occupation">Occupation</label>   <input type="text" name="occupation" ></p>
+         <input type="submit" value="add">
+        </form>
+    </div>
+
+</body>
+</html>

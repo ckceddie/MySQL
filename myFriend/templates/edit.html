@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Create friend's profile</title>
+    <style>
+        div.container{
+            margin: 10pt;
+            
+        }
+    
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+</head>
+<body>
+
+    <div class="container">
+        <form action="/{{ friend['id' ]}}/update" method="POST">
+            <h1>Edit : {{ friend['id'] }}</h1>
+            <!-- <p><label for="id">ID</label> <input type="text" ></p> -->
+            <p><label for="first_name">First Name</label> <input type="text" name="first_name" value="{{ friend['first_name'] }}">  </p>
+            <p><label for="last_name">Last Name</label> <input type="text" name="last_name" value="{{ friend['last_name'] }}"></p>
+            <p><label for="occupation">Occupation</label> <input type="text" name="occupation" value="{{ friend['occupation'] }}"></p> 
+            <p><label for="created_at">Created at</label> : {{ friend['created_at'] }}</p>    
+            <p><label for="updated_at">UPdated at</label> : {{ friend['updated_at']}} </p>    
+   
+            <input type="submit" value="Update friend profile" >
+        </form>
+    </div>
+
+
+
+
+</body>
+</html>

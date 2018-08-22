@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>my Friends</title>
+  <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+ <link rel="stylesheet" type="text/css" 
+  href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+
+
+</head>
+<body>
+<div class="container"> 
+<table class="pure-table">
+        <h1>Show User {{ friend['id'] }}</h1>
+        <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>first Name</td>
+                    <td>last name</td>
+                    <td>Occupation</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+    
+    <tr>
+        <td>{{ friend['id'] }}</td>
+        <td>{{ friend['first_name'] }}</td>
+        <td>{{ friend['last_name'] }}</td>
+        <td>{{ friend['occupation'] }}</td>
+        <td>[<a href="/">home</a>]</td>
+    </tr>
+    
+
+    </table>
+
+        <form action="/friends" method="post">
+          <p> <label for="first_name">First Name1</label>   <input type="text" name="first_name" ></p>
+          <p> <label for="last_name">Last Name</label>   <input type="text" name="last_name" ></p>
+          <p> <label for="occupation">Occupation</label>   <input type="text" name="occupation" ></p>
+        <input type="submit" value="add">
+        </form>
+    </div>
+
+</body>
+</html>
