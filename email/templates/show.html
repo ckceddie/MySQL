@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <style>
+            div.container{
+                width: 800px;
+                margin: 0px auto 0px auto;
+                text-align: center;
+            }
+            div.container-green{
+                padding: 10px;
+                color:white;
+                width: 800px;
+                text-align: center;
+                margin: 0px auto 0px auto;
+                background-color:green;
+            }
+        </style>
+    <title>Email List</title>
+</head>
+<body>
+    <div class="container-green">
+        <p>{{ message }}</p>
+    </div>
+    <div class="container">
+        <p>
+        <table class="pure-table">
+            <thead>
+                <tr>
+                    <td>id </td>
+                    <td>Email Address</td>
+                    <td>created at</td>
+                    <td></td>
+                </tr>
+            </thead>   
+                {%   for email in emails %}
+                <tr>
+                    <td> {{email['id']}} </td>
+                    <td> {{email['email']}} </td>
+                    <td> {{email['created_at']}} </td>
+                    <td><form action="/{{email['id']}}/delete" method="POST"><input type="submit" value=Delete></form></td>
+                </tr>
+
+                {% endfor %}
+            
+
+        </table>
+    </p>
+    </div>
+</body>
+</html>
