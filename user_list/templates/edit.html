@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+    <title> Users list </title>
+    <style>
+        *{
+            font-size: 8pt;
+        }
+        .main_frame{
+            width: 900px;
+            margin: 0px auto 0px auto;
+            /* border: 1px solid red; */
+        }
+    </style>
+</head>
+<body>
+    <div class="main_frame">
+        <h1>Edit user [{{user.id}}]</h1>
+        <table class="pure-table">
+            <form action="/edit_user" method="POST">
+            <tr>
+                    <td></td>
+                    <td><input type="hidden" name="id" value={{user.id}}></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" name="first_name" value={{user.first_name}}></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" name="last_name" value={{user.last_name}}></td>
+            </tr>
+            <tr>
+                <td>email</td>
+                <td><input type="text" name="email"  value={{user.email}}></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="submit"></td>
+            </tr>  
+            <tr>
+                 <td></td>
+                  <td>                 
+                      {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                          {% for message in messages %}
+                            {{message}} <br>
+                          {% endfor %}
+                        {% endif %}
+                      {% endwith %}
+                </td>
+            </tr>                    
+            
+            
+            </form>
+        </table>
+        <a href="/">back</a>
+
+    </div>
+</body>
+</html>
